@@ -8,10 +8,10 @@ replicas:
     count: 4
 
 patches:
-  # - target:
-  #     group: argoproj.io
-  #     version: v1alpha1
-  #     kind: Rollout
-  #   patch: |
-  #     - op: remove
-  #       path: /spec/template
+  - target:
+      group: argoproj.io
+      version: v1alpha1
+      kind: Rollout
+    patch: |
+      - op: remove
+        path: /spec/template
