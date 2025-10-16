@@ -1,0 +1,3 @@
+[submodule "base/crds/kustomize-openshift"]
+	path = base/crds/kustomize-openshift
+	url = https://github.com/adnovum/kustomize-openshift.git
