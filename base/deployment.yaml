@@ -11,9 +11,9 @@ spec:
           image: placeholder
           ports:
             - containerPort: 8080
-          # envFrom:
-          #   - configMapRef:
-          #       name: cm
+          #-# envFrom:
+          #-#   - configMapRef:
+          #-#       name: cm
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
@@ -25,10 +25,10 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: deploy
-  # paused: false
+  ## paused: false
   strategy:
     blueGreen:
       activeService: svc
       previewService: svc-green
-      # previewReplicaCount: 1
+      previewReplicaCount: 1
       autoPromotionEnabled: false
