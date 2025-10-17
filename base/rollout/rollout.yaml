@@ -2,6 +2,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: rollout
+  labels:
+    blue-green.rollout/zone: blue-green
 spec:
   replicas: 0
   workloadRef:
