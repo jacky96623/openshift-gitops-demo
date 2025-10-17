@@ -2,6 +2,8 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: route
+  labels:
+    blue-green.rollout/zone: blue
 spec:
   to:
     kind: Service
