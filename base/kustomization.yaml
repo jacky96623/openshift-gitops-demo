@@ -1,16 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-buildMetadata:
-  - managedByLabel
-  - originAnnotations
-  - transformerAnnotations
-
-#configurations:
-#  - https://argoproj.github.io/argo-rollouts/features/kustomize/rollout-transform-kustomize-v5.yaml
-#crds:
-#  - crds/kustomize-openshift/crds/openshift-route.json
-
 namePrefix: rollouts-demo-
 labels:
   - pairs:
@@ -21,8 +11,4 @@ resources:
   - route
   - service
   - deployment
-
-images:
-  - name: placeholder
-    newName: argoproj/rollouts-demo
-    newTag: blue
+  - rollout
