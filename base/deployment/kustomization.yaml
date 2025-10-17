@@ -9,6 +9,6 @@ replicas:
     count: 4
 
 images:
-  - name: placeholder
+  - name: <placeholder>
     newName: argoproj/rollouts-demo
-    newTag: blue
+    newTag: red
