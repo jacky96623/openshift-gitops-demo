@@ -1,20 +1,3 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: deploy
-spec:
-  replicas: 4
-  template:
-    spec:
-      containers:
-        - name: app
-          image: placeholder
-          ports:
-            - containerPort: 8080
-          #-# envFrom:
-          #-#   - configMapRef:
-          #-#       name: cm
----
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:

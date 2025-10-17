@@ -1,15 +1,6 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: route
-spec:
-  to:
-    kind: Service
-    name: svc
----
-apiVersion: route.openshift.io/v1
-kind: Route
-metadata:
   name: route-green
 spec:
   to:
