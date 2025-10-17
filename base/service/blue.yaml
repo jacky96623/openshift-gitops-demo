@@ -4,7 +4,6 @@ metadata:
   name: svc
   labels:
     blue-green.rollout/zone: blue
-    ping: no-pong
 spec:
   ports:
     - port: 8080
