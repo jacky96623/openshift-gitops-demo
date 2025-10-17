@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy
+spec:
+  replicas: 4
+  template:
+    spec:
+      containers:
+        - name: app
+          image: placeholder
+          ports:
+            - containerPort: 8080

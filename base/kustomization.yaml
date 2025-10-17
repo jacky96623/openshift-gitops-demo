@@ -6,10 +6,10 @@ buildMetadata:
   - originAnnotations
   - transformerAnnotations
 
-configurations:
-  - https://argoproj.github.io/argo-rollouts/features/kustomize/rollout-transform-kustomize-v5.yaml
-crds:
-  - crds/kustomize-openshift/crds/openshift-route.json
+#configurations:
+#  - https://argoproj.github.io/argo-rollouts/features/kustomize/rollout-transform-kustomize-v5.yaml
+#crds:
+#  - crds/kustomize-openshift/crds/openshift-route.json
 
 namePrefix: rollouts-demo-
 labels:
@@ -18,14 +18,11 @@ labels:
     includeSelectors: true
 
 resources:
-  - deployment.yaml
-  - service.yaml
-  - route.yaml
+  - route
+  - service
+  - deployment
 
 images:
   - name: placeholder
     newName: argoproj/rollouts-demo
     newTag: blue
-
-#-# configMapGenerator:
-#-#   - name: cm
