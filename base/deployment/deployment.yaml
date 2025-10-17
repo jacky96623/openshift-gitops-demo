@@ -2,11 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deploy
+  labels:
+    blue-green.rollout/zone: blue
 spec:
   template:
     spec:
       containers:
         - name: app
-          image: placeholder
+          image: <placeholder>
           ports:
             - containerPort: 8080
