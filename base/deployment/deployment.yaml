@@ -9,6 +9,6 @@ spec:
     spec:
       containers:
         - name: app
-          image: <placeholder>
+          image: <image>
           ports:
             - containerPort: 8080
