@@ -7,10 +7,10 @@ labels:
       blue-green.rollout/zone: green
 
 resources:
-#   - ../../base
+  - ../../base/service
 
-components:
-  - ../service
+# components:
+#   - ../service
 
 # patches:
 #   - target:
