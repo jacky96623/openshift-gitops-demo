@@ -9,5 +9,5 @@ kind: Component
 resources:
   - service.yaml
 
-# components:
-#   - ../name-prefix
+components:
+  - ../app-label
