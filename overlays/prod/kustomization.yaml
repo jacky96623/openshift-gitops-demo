@@ -4,18 +4,14 @@ kind: Kustomization
 namePrefix: rollouts-demo-
 labels:
   - pairs:
-      app: rollouts-demo
-    includeSelectors: true
-  - pairs:
       env: prod
     includeTemplates: true
-  # - pairs:
-  #     blue-green.rollout/zone: blue
 
 resources:
   - ../../base
 
 components:
+  - ../../components/blue-labels
   - ../../components/green-service
 
 replicas:
