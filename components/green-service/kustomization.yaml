@@ -7,16 +7,4 @@ labels:
       blue-green.rollout/zone: green
 
 resources:
-  - ../../base/service
-
-# components:
-#   - ../service
-
-# patches:
-#   - target:
-#       name: deploy|ing
-#     patch: | # yaml
-#       $patch: delete
-#       kind: <kind>
-#       metadata:
-#         name: <name>
+  - service.yaml
