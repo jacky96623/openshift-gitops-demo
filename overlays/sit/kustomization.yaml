@@ -9,6 +9,9 @@ labels:
 resources:
   - ../../base
 
+components:
+  - ../components/name-prefix
+
 replicas:
   - name: deploy
     count: 2
