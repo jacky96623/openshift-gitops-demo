@@ -10,9 +10,7 @@ patches:
   - target:
       # name: \*-green
       labelSelector: blue-green.rollout/zone!=green
-    patch: |
-      kind: __kind__
-      metadata:
-        name: __name__
-        labels:
-          blue-green.rollout/zone: blue
+    patch: | # yaml
+      - op: add
+        path: /metadata/labels/blue-green.rollout~1zone
+        value: blue

@@ -9,11 +9,10 @@ kind: Component
 patches:
   - target:
       name: ing
-    patch: |
-      kind: __kind__
-      metadata:
-        name: __name__
-        annotations:
+    patch: | # yaml
+      - op: add
+        path: /metadata/annotations
+        value:
           nginx.ingress.kubernetes.io/canary: "true"
           nginx.ingress.kubernetes.io/canary-by-header: X-User-Type
           nginx.ingress.kubernetes.io/canary-by-header-value: Pilot
