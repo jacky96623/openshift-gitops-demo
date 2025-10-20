@@ -13,21 +13,15 @@ resources:
 components:
   - ../../components/blue-labels
   - ../../components/green-service
+  - ../../components/rollout
 
 replicas:
   - name: deploy
-  #   count: 0
-  # - name: rollout
+    count: 0
+  - name: rollout
     count: 4
 
 patches:
-  # - target:
-  #     name: rollout
-  #   patch: | # yaml
-  #     - op: remove
-  #       path: /spec/selector
-  #     - op: remove
-  #       path: /spec/template
   - target:
       name: ing
     patch: | # yaml

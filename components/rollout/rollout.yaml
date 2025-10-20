@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: rollout
+  labels:
+    blue-green.rollout/zone: blue-green
+spec:
+  workloadRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: deploy
+  strategy:
+    blueGreen:
+      autoPromotionEnabled: false
+      activeService: svc
+      activeMetadata:
+        labels:
+          blue-green.rollout/zone: blue
+      previewService: svc-green
+      previewMetadata:
+        labels:
+          blue-green.rollout/zone: green
+      previewReplicaCount: 1
