@@ -1,14 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namePrefix: rollouts-demo-
+# REVIEW
+# namePrefix: rollouts-demo-
 labels:
-  - pairs:
-      app: rollouts-demo
-    includeSelectors: true
-  # # REVIEW
   # - pairs:
-  #     blue-green.rollout/zone: blue
+  #     app: rollouts-demo
+  #   includeSelectors: true
+  - pairs:
+      blue-green.rollout/zone: blue
 
 resources:
   - deployment.yaml
