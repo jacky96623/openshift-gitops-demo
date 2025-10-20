@@ -1,11 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namePrefix: rollouts-demo-
+# namePrefix: rollouts-demo-
 labels:
-  - pairs:
-      app: rollouts-demo
-    includeSelectors: true
+  # - pairs:
+  #     app: rollouts-demo
+  #   includeSelectors: true
   - pairs:
       env: sit
     includeTemplates: true
@@ -20,7 +20,7 @@ replicas:
 patches:
   - target:
       name: ing
-    patch: |
+    patch: | # yaml
       - op: replace
         path: /spec/rules/0/host
         value: rollouts-demo-ing-rollouts-demo-sit.apps.q4n4p.dynamic.redhatworkshops.io
