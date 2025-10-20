@@ -1,17 +1,17 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-# namePrefix: rollouts-demo-
 labels:
-  # - pairs:
-  #     app: rollouts-demo
-  #   includeSelectors: true
   - pairs:
       env: sit
     includeTemplates: true
 
 resources:
   - ../../base
+
+components:
+  - ../../components/name-prefix
+  - ../../components/app-label
 
 replicas:
   - name: deploy

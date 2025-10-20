@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: <image>
+          image: __image__
           ports:
             - containerPort: 8080
           resources:

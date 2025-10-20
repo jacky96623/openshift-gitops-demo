@@ -1,26 +1,18 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-# # REVIEW
-# # namePrefix: rollouts-demo-
-# labels:
-#   # - pairs:
-#   #     app: rollouts-demo
-#   #   includeSelectors: true
-#   - pairs:
-#       blue-green.rollout/zone: blue
-#     includeTemplates: true # REVIEW: conflict with Argo Rollouts?
+# This label config allows the base to be deployed standalone
+labels:
+  - pairs:
+      app: __app__
+    includeSelectors: true
 
 resources:
   - deployment.yaml
   - service.yaml
   - ingress.yaml
 
-components:
-  - ../components/name-prefix
-  - ../components/app-label
-
 images:
-  - name: <image>
+  - name: __image__
     newName: argoproj/rollouts-demo
     newTag: red
