@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: svc-green
   annotations:
-    argocd.argoproj.io/sync-options: Replace=true
+    # argocd.argoproj.io/sync-options: Replace=true
   labels:
     blue-green.rollout/zone: green
 spec:
