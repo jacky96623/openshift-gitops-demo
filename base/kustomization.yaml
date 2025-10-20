@@ -1,14 +1,15 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namePrefix: rollouts-demo-
-labels:
-  - pairs:
-      app: rollouts-demo
-    includeSelectors: true
-
 resources:
-  - route
-  - service
-  - deployment
-  - rollout
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+
+components:
+  - ../components/app-label
+
+images:
+  - name: __image__
+    newName: argoproj/rollouts-demo
+    newTag: orange
