@@ -26,9 +26,15 @@ replicas:
 
 patches:
   # - target:
-  #     kind: Rollout
+  #     name: rollout
   #   patch: |
   #     - op: remove
   #       path: /spec/selector
   #     - op: remove
   #       path: /spec/template
+  - target:
+        name: ing
+      patch: |
+        - op: replace
+          path: /spec/rules/0/host
+          value: rollouts-demo-ingr-rollouts-demo.apps.q4n4p.dynamic.redhatworkshops.io
