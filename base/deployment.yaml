@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: deploy
-  labels:
-    blue-green.rollout/zone: blue
 spec:
   template:
     spec:
@@ -12,3 +10,10 @@ spec:
           image: <image>
           ports:
             - containerPort: 8080
+          resources:
+            requests:
+              cpu: 5m
+              memory: 32Mi
+            limits:
+              cpu: 5m
+              memory: 32Mi
