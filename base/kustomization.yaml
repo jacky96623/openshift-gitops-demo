@@ -4,7 +4,7 @@ kind: Kustomization
 # This label config allows the base to be deployed standalone
 labels:
   - pairs:
-      app: __app__
+      app: ""
     includeSelectors: true
 
 resources:
