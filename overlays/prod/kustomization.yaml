@@ -4,34 +4,29 @@ kind: Kustomization
 namePrefix: rollouts-demo-
 labels:
   - pairs:
-      app: rollouts-demo
-    includeSelectors: true
-  - pairs:
       env: prod
-    includeTemplates: true
-  # - pairs:
-  #     blue-green.rollout/zone: blue
 
 resources:
   - ../../base
 
 components:
-  - ../../components/green-svc
+  - ../../components/blue-labels
+  - ../../components/green-service
+  - ../../components/rollout
 
 replicas:
   - name: deploy
-  #   count: 0
-  # - name: rollout
+    count: 0
+  - name: rollout
     count: 4
 
 patches:
-  # - target:
-  #     name: rollout
-  #   patch: | # yaml
-  #     - op: remove
-  #       path: /spec/selector
-  #     - op: remove
-  #       path: /spec/template
+  - target:
+      name: deploy
+    patch: | # yaml
+      - op: add
+        path: /spec/template/metadata/labels/env
+        value: prod
   - target:
       name: ing
     patch: | # yaml
