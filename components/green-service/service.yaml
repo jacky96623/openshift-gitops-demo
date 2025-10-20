@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  # name: svc
+  name: svc-green
+  labels:
+    blue-green.rollout/zone: green
+spec:
+  ports:
+    - port: 8080
