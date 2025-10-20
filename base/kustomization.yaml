@@ -1,16 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-# This label config allows the base to be deployed standalone
-labels:
-  - pairs:
-      app: ""
-    includeSelectors: true
-
 resources:
   - deployment.yaml
   - service.yaml
   - ingress.yaml
+
+components:
+  - ../components/name-prefix
+  - ../components/app-label
 
 images:
   - name: __image__
