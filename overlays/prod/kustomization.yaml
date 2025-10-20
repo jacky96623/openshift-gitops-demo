@@ -16,7 +16,7 @@ resources:
   - ../../base
 
 components:
-  - ../../components/green-svc
+  - ../../components/green-service
 
 replicas:
   - name: deploy

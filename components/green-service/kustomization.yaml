@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+nameSuffix: -green
+labels:
+  - pairs:
+      blue-green.rollout/zone: green
+
+resources:
+#   - ../../base
+
+components:
+  - ../service
+
+# patches:
+#   - target:
+#       name: deploy|ing
+#     patch: | # yaml
+#       $patch: delete
+#       kind: <kind>
+#       metadata:
+#         name: <name>
