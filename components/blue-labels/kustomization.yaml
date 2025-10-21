@@ -7,9 +7,7 @@ kind: Component
 #     includeTemplates: true # REVIEW: conflict with Argo Rollouts?
 
 patches:
-  - target:
-      # name: \*-green
-      labelSelector: blue-green.rollout/zone!=green
+  - target: {}
     patch: | # yaml
       - op: add
         path: /metadata/labels/blue-green.rollout~1zone

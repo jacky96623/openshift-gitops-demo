@@ -1,45 +1,39 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-# namePrefix: rollouts-demo-
+namePrefix: rollouts-demo-
 nameSuffix: -green
+# REVIEW
 labels:
   - pairs:
       blue-green.rollout/zone: green
-    includeSelectors: true # REVIEW
+    includeSelectors: true
+  - pairs:
+      env: prod
+    includeTemplates: true
 
 resources:
-  - ../prod
+  - ../../base
 
-components:
-  - ../../components/green-ingress
+# components:
+#   - ../../components/green-ingress
 
 replicas:
   - name: deploy
     count: 1
-# replacements:
-#   - source:
-#       name: rollout
-#       fieldPath: spec.strategy.blueGreen.previewReplicaCount
-#     targets:
-#       - select:
-#           name: deploy
-#         fieldPaths:
-#           - spec.replicas
 
 patches:
   - target:
-      # labelSelector: blue-green.rollout/zone=green
-      labelSelector: blue-green.rollout/zone!=blue
+      name: svc
     patch: | # yaml
-      $patch: delete
       kind: __kind__
       metadata:
         name: __name__
-  # - target:
-  #     name: rollout
-  #   path: ./paused-rollout/rollout.yaml
-  #   # patch: | # yaml
-  #   #   - op: replace
-  #   #     path: /spec/rules/0/host
-  #   #     value: rollouts-demo-ing-rollouts-demo.apps.q4n4p.dynamic.redhatworkshops.io
+        annotations:
+          argocd.argoproj.io/sync-options: Replace=true
+  - target:
+      name: ing
+    patch: | # yaml
+      - op: replace
+        path: /spec/rules/0/host
+        value: rollouts-demo-ing-rollouts-demo.apps.q4n4p.dynamic.redhatworkshops.io
