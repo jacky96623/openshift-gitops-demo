@@ -15,22 +15,15 @@ labels:
 resources:
   - ../../base
 
-# components:
-#   - ../../components/green-ingress
+components:
+  - ../../components/green-service-annotation
+  # - ../../components/green-ingress
 
 replicas:
   - name: deploy
     count: 1
 
 patches:
-  - target:
-      name: svc
-    patch: | # yaml
-      kind: __kind__
-      metadata:
-        name: __name__
-        annotations:
-          argocd.argoproj.io/sync-options: Replace=true
   - target:
       name: ing
     patch: | # yaml

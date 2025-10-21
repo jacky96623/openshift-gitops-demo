@@ -6,3 +6,4 @@ resources:
 
 components:
   - ../app-label
+  - ../green-service-annotation
