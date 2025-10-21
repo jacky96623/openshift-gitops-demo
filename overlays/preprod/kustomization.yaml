@@ -34,6 +34,13 @@ patches:
   - target:
       name: ing
     patch: | # yaml
-      - op: replace
-        path: /spec/rules/0/host
-        value: rollouts-demo-ing-rollouts-demo.apps.q4n4p.dynamic.redhatworkshops.io
+      kind: __kind__
+      metadata:
+        name: __name__
+        annotations:
+          nginx.ingress.kubernetes.io/canary: "true"
+          nginx.ingress.kubernetes.io/canary-by-header: X-User-Type
+          nginx.ingress.kubernetes.io/canary-by-header-value: Pilot
+      spec:
+        rules:
+          - host: rollouts-demo-ing-rollouts-demo.apps.q4n4p.dynamic.redhatworkshops.io
