@@ -12,4 +12,4 @@ components:
 images:
   - name: __image__
     newName: argoproj/rollouts-demo
-    newTag: latest
+    newTag: orange
