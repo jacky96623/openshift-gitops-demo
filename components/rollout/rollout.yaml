@@ -16,7 +16,7 @@ spec:
       activeMetadata:
         labels:
           blue-green.rollout/zone: blue
-      # previewService: svc-green
+      previewService: svc-tmp
       previewMetadata:
         labels:
           blue-green.rollout/zone: green
