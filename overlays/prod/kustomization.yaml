@@ -11,7 +11,7 @@ resources:
 
 components:
   - ../../components/blue-labels
-  - ../../components/green-service
+  - ../../components/tmp-service
   - ../../components/rollout
 
 replicas:
